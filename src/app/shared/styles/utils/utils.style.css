@@ -1,0 +1,25 @@
+.hover-item-menu{
+  color: var(--white);
+  transition: color var(--transition-hover);
+
+  &:hover,&:hover *{
+    color: var(--yellow);
+  }
+}
+
+
+.button-style{
+
+  background-color: var(--yellow);
+  color: var(--black);
+  transition: background-color var(--transition-buttons);
+  
+  &:hover{
+    background-color: var(--yellow-2);
+  }
+
+  &:disabled{
+    background-color: var(--yellow-3);
+  }
+
+}

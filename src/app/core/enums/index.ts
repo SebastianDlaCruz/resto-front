@@ -1,0 +1,2 @@
+export * from './rol.enum';
+

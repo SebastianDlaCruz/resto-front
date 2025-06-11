@@ -1,0 +1,35 @@
+<header>
+
+  <button class="hamburger" (click)="onActive()">
+    <ng-icon [svg]="hamburgerIcon"></ng-icon>
+  </button>
+
+  <img src="/logo/logo.svg" alt="logo" />
+
+  <nav>
+
+
+    <menu>
+      <li><a href="" class="hover-item-menu">Carta</a></li>
+      <li><a href="" class="hover-item-menu">Promosiones</a></li>
+      <li><a href="" class="hover-item-menu">Contacto</a></li>
+      <li><a href="" class="hover-item-menu">Mi Cuenta</a></li>
+    </menu>
+
+    <div class="container-buttons">
+      <button class="logout">
+        <ng-icon [svg]="logoutIcon"></ng-icon>
+
+      </button>
+
+      <button class="cart">
+        <ng-icon [svg]="cartIcon"></ng-icon>
+      </button>
+
+    </div>
+
+  </nav>
+
+</header>
+
+<app-aside-bar [active]="activeAside" (onClose)="onClose()" />

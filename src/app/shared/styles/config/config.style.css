@@ -1,0 +1,20 @@
+:root{
+
+  /*  primary colors */
+
+  --black: #0e0e0e;
+  --grey-v1: #2d2d2d;
+  --grey-v2: #acacac;
+  --white: #fff;
+
+  /* secondary colors */
+
+  --yellow: #FFA800;
+  --yellow-2: #FFC451;
+  --yellow-3: #FCDB9B;
+
+  --padding-inline: clamp(.2rem,calc(.4rem + 5vw), 5rem);
+
+  --transition-hover: 1s ease;
+  --transition-buttons: 1s  ease-out;
+}

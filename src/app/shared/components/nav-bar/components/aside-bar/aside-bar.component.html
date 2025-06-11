@@ -1,0 +1,29 @@
+<aside [class]="{
+  'aside-active': active
+}">
+
+  <header>
+    <div>
+      <img src="/logo/logo.svg" alt="logo">
+      <button (click)="close()">
+        <ng-icon [svg]="xIcon"></ng-icon>
+      </button>
+    </div>
+
+    <hr />
+  </header>
+
+  <nav>
+    <menu>
+      <li><button>Iniciar sesión</button></li>
+      <li><a href="" class="hover-item-menu">Mi carrito</a></li>
+      <li><a href="" class="hover-item-menu">Mis datos</a></li>
+      <li><a href="" class="hover-item-menu">Mis tarjetas</a></li>
+      <li><a href="" class="hover-item-menu">Mis pedidos</a></li>
+      <li><a href="" class="hover-item-menu">Nosotros</a></li>
+      <li><a href="" class="hover-item-menu">Reserva</a></li>
+      <li><button>Cerrar sesión</button></li>
+    </menu>
+
+  </nav>
+</aside>

@@ -1,0 +1,48 @@
+header{
+  position: sticky;
+  inset-block-start: 0;
+  inset-inline: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 106px;
+  padding-inline: var(--padding-inline);
+}
+
+.logout{
+  display: none;
+}
+
+menu{
+  display: none;
+}
+
+@media screen and (min-width: 980px) {
+
+  .hamburger{
+    display: none;
+  }
+  .logout{
+    display: block;
+  }
+
+
+  .container-buttons{
+    display: flex;
+  }
+
+
+  nav{
+    display: flex;
+    justify-content: space-between;
+    height: 24px;
+    width: 467px;
+  }
+
+  menu{
+    display: flex;
+    justify-content: space-around;
+    width: 85%;
+  }
+
+}
