@@ -1,0 +1,39 @@
+div{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+
+label{
+  font-weight: 400;
+}
+
+input{
+  height: 59px;
+  width: 100%;
+  padding-inline: 12px;
+  border-radius: 6px;
+  border: 0.6px solid #282828;
+  color: var(--input-color-text);
+  vertical-align: middle;
+  line-height: 100%;
+  letter-spacing: 0%;
+  font-weight: 400;
+  &::placeholder{
+    color: #000000
+  }
+
+  &:focus{
+    outline: none;
+    border: 1.5px solid var(--yellow-2);
+  }
+}
+
+.icon{
+  position: absolute;
+  inset-block: 50%;
+  right: 4%;
+}

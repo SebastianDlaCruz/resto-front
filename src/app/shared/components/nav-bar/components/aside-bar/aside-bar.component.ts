@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { featherX } from '@ng-icons/feather-icons';
 
@@ -11,10 +11,10 @@ import { featherX } from '@ng-icons/feather-icons';
 
 })
 export class AsideBarComponent {
-  xIcon = featherX;
 
-  @Input() active?: boolean;
-  @Output() onClose = new EventEmitter<void>();
+  xIcon = featherX;
+  active = input<boolean>(false)
+  onClose = output<void>();
 
 
   close() {

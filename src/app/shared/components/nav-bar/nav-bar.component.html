@@ -8,19 +8,22 @@
 
   <nav>
 
-
     <menu>
       <li><a href="" class="hover-item-menu">Carta</a></li>
-      <li><a href="" class="hover-item-menu">Promosiones</a></li>
+      <li><a href="" class="hover-item-menu">Promociones</a></li>
       <li><a href="" class="hover-item-menu">Contacto</a></li>
       <li><a href="" class="hover-item-menu">Mi Cuenta</a></li>
     </menu>
 
     <div class="container-buttons">
-      <button class="logout">
-        <ng-icon [svg]="logoutIcon"></ng-icon>
 
+      <button class="button-auth" (click)="onOpenModal()">
+        Iniciar Sesión
       </button>
+
+      <!--   <button class="logout">
+        <ng-icon [svg]="logoutIcon"></ng-icon>
+      </button> -->
 
       <button class="cart">
         <ng-icon [svg]="cartIcon"></ng-icon>
@@ -33,3 +36,5 @@
 </header>
 
 <app-aside-bar [active]="activeAside" (onClose)="onClose()" />
+
+<app-modal-auth #modalAuth />

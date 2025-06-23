@@ -17,7 +17,23 @@ menu{
   display: none;
 }
 
+.button-auth{
+  display: none;
+}
+
 @media screen and (min-width: 980px) {
+
+  .button-auth{
+    display: inline-block;
+    min-width: 100%;
+    color: var(--white);
+     transition: background-color var(--transition-buttons);
+
+    &:hover{
+      color: var(--yellow);
+    }
+
+  }
 
   .hamburger{
     display: none;
@@ -42,6 +58,7 @@ menu{
   menu{
     display: flex;
     justify-content: space-around;
+    align-items: center;
     width: 85%;
   }
 

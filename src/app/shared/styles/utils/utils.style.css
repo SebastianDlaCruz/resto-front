@@ -13,7 +13,7 @@
   background-color: var(--yellow);
   color: var(--black);
   transition: background-color var(--transition-buttons);
-  
+
   &:hover{
     background-color: var(--yellow-2);
   }

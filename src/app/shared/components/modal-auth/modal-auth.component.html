@@ -1,0 +1,47 @@
+<dialog #modal>
+
+  <header>
+
+    @if(isSignIn()){
+    <h2>Iniciar Sesión</h2>
+    }@else{
+    <h2>Registro</h2>
+    }
+
+    <button (click)="close()">
+      <ng-icon [svg]="iconX"></ng-icon>
+    </button>
+
+  </header>
+
+  <form [formGroup]="isSignIn() ? formSignIn: formSingUp" (ngSubmit)="onSubmit()">
+
+    @if(isSignIn()){
+
+    @for(input of inputsSingIn; track input) {
+    <app-custom-input [config]="input" />
+    }
+
+    <div class="container-button">
+      <button class="submit button-style">Iniciar Sesión</button>
+      <p>¿No tienes cuenta?<button type="button" (click)="onSignUp()">Regístrate</button></p>
+    </div>
+
+    }@else {
+
+    @for(input of inputsSignUp; track input) {
+    <app-custom-input [config]="input" />
+    }
+
+    <div class="container-button">
+      <button class="submit button-style">Regístrate</button>
+      <p>¿Ya tienes cuenta?<button type="button" (click)="onSignIn()">Inicia Sesión</button></p>
+    </div>
+
+
+    }
+
+
+  </form>
+
+</dialog>

@@ -1,0 +1,19 @@
+<div>
+  <label [for]="config().ref">{{config().label}}</label>
+  <input [type]="!visiblePassword() ? config().type :'text'" [required]="config().required" [name]="config().ref"
+    [placeholder]="config().placeholder ??''" />
+
+  @if(config().type === type.PASSWORD){
+
+  @if(!visiblePassword()){
+  <button type="button" class="icon" (click)="onVisibilityToggle()">
+    <ng-icon [svg]="iconEyeOff"></ng-icon>
+  </button>
+  }@else{
+  <button type="button" class="icon" (click)="onVisibilityToggle()">
+    <ng-icon [svg]="iconEyed"></ng-icon>
+  </button>
+  }
+  }
+
+</div>

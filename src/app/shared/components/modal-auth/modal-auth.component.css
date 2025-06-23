@@ -1,0 +1,46 @@
+dialog{
+  min-height: 701px;
+  width: 505px;
+  padding: 3rem 1.5rem ;
+  border-radius: 10px;
+  border:none;
+  background-color: var(--white);
+}
+
+::backdrop {
+  background-color: rgba(0, 0, 0, 0.363);
+}
+
+
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  min-height: 500px;
+}
+
+.container-button{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  & button{
+    font-weight: bold;
+  }
+}
+
+
+.submit{
+  height: 57px;
+  width: 100%;
+}

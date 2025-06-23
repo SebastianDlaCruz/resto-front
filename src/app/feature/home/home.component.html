@@ -1,3 +1,41 @@
 <app-nav-bar />
 
+<main>
+  <section>
+    <header>
+      search
+
+      <h1>Destacados de esta semana</h1>
+
+      <div>
+        <hr />
+        <p>Tablas para compartir</p>
+        <hr />
+      </div>
+
+    </header>
+  </section>
+
+  <section>
+
+    <header>
+      <h2>Lo que dicen nuestros clientes</h2>
+    </header>
+
+    <p>Estamos muy orgullosos de ofrecer a nuestros clientes la mejor experiencia de Country Resto, y nos complace saber
+      que nuestros esfuerzos son apreciados. Te invitamos a conocernos y a disfrutar de nuestros platos destacados en la
+      ciudad de Buenos Aires.</p>
+
+    <div>
+
+      @for (person of persons; track $index) {
+      <app-person [person]="person" />
+      }
+
+    </div>
+
+  </section>
+
+</main>
+
 <app-footer-bar />
