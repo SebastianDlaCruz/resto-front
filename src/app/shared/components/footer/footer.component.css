@@ -1,0 +1,51 @@
+footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 205px;
+  padding-inline: var(--padding-inline);
+
+& .contact-info{
+  display: flex;
+
+}
+
+}
+
+div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: clamp(300px , calc(296px + 40vw), 600px) ;
+}
+
+dd{
+  margin: 0;
+}
+
+.title{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.info{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 12px;
+
+  & span{
+    font-size: 12px;
+  }
+}
+
+
+.container-social{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 12px;
+}

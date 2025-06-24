@@ -1,9 +1,28 @@
-<div>
-  <label [for]="config().ref">{{config().label}}</label>
-  <input [type]="!visiblePassword() ? config().type :'text'" [required]="config().required" [name]="config().ref"
-    [placeholder]="config().placeholder ??''" />
+@let configLocal = config();
 
-  @if(config().type === type.PASSWORD){
+<div>
+
+  <label [for]="configLocal.ref">{{configLocal.label}}</label>
+  <input [type]="!visiblePassword() ? configLocal.type :'text'" [name]="configLocal.ref"
+    [placeholder]="configLocal.placeholder ??''"
+    [class.invalid-input]="configLocal.control.invalid && configLocal.control.touched"
+    [formControl]="configLocal.control" />
+
+  @if(configLocal.control.invalid && configLocal.control.touched ){
+  <small class="error">El campo es requerido</small>
+  }
+
+  @if(configLocal.validators && configLocal.validators.length > 0){
+
+  @for(validate of configLocal.validators; track validate){
+  @if(configLocal.control.invalid && configLocal.control.hasError(validate.valid)){
+  <small class="error">{{validate.message}}</small>
+  }
+  }
+
+  }
+
+  @if(configLocal.type === type.PASSWORD){
 
   @if(!visiblePassword()){
   <button type="button" class="icon" (click)="onVisibilityToggle()">
@@ -14,6 +33,7 @@
     <ng-icon [svg]="iconEyed"></ng-icon>
   </button>
   }
+
   }
 
 </div>

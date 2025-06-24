@@ -11,7 +11,7 @@ footer{
   & nav{
     width: 100%;
   }
-  
+
 }
 
 menu {
@@ -29,18 +29,17 @@ menu {
     align-items: center;
     justify-content: center;
     gap: 6px;
-    
+
 }
 
   & li a > span{
     font-size: 10px;
   }
-  
+
 }
 
 
 @media screen and (min-width:  980px) {
-
   footer{
     display: none;
   }

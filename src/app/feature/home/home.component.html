@@ -1,9 +1,13 @@
 <app-nav-bar />
 
 <main>
-  <section>
+
+  <section class="section-hero">
     <header>
-      search
+
+      <form>
+        <input type="text">
+      </form>
 
       <h1>Destacados de esta semana</h1>
 
@@ -14,20 +18,23 @@
       </div>
 
     </header>
+
   </section>
 
   <section>
 
-    <header>
+    <header class="section-clients-header">
       <h2>Lo que dicen nuestros clientes</h2>
+
+      <p>Estamos muy orgullosos de ofrecer a nuestros clientes la mejor experiencia de Country Resto, y nos complace
+        saber
+        que nuestros esfuerzos son apreciados. Te invitamos a conocernos y a disfrutar de nuestros platos destacados en
+        la
+        ciudad de Buenos Aires.</p>
     </header>
 
-    <p>Estamos muy orgullosos de ofrecer a nuestros clientes la mejor experiencia de Country Resto, y nos complace saber
-      que nuestros esfuerzos son apreciados. Te invitamos a conocernos y a disfrutar de nuestros platos destacados en la
-      ciudad de Buenos Aires.</p>
 
-    <div>
-
+    <div class="container-persons">
       @for (person of persons; track $index) {
       <app-person [person]="person" />
       }
@@ -39,3 +46,5 @@
 </main>
 
 <app-footer-bar />
+
+<app-footer />

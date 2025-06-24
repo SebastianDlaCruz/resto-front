@@ -7,6 +7,8 @@ header{
   align-items: center;
   height: 106px;
   padding-inline: var(--padding-inline);
+  background-color: var(--black);
+  z-index: 4;
 }
 
 .logout{
@@ -22,6 +24,7 @@ menu{
 }
 
 @media screen and (min-width: 980px) {
+
 
   .button-auth{
     display: inline-block;

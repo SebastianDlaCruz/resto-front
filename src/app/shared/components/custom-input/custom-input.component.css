@@ -4,6 +4,10 @@ div{
   flex-direction: column;
   justify-content: flex-start;
   gap: 12px;
+
+  & > .error{
+   color: var(--invalid);
+  }
 }
 
 
@@ -30,6 +34,12 @@ input{
     outline: none;
     border: 1.5px solid var(--yellow-2);
   }
+
+  &.invalid-input{
+   border: 1px solid var(--invalid);
+   color: var(--invalid);
+  }
+
 }
 
 .icon{

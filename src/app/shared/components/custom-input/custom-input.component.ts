@@ -1,13 +1,13 @@
 
 import { Component, input, signal } from '@angular/core';
-import { AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR, ValidationErrors, Validator, Validators } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { featherEye, featherEyeOff } from '@ng-icons/feather-icons';
-import { CustomInputConfig, CustomInputType } from './model/custom-input.model';
+import { CustomInputConfig, CustomInputType, CustomInputValidatorsType } from './model/custom-input.model';
 
 @Component({
   selector: 'app-custom-input',
-  imports: [NgIcon],
+  imports: [NgIcon, ReactiveFormsModule],
   templateUrl: './custom-input.component.html',
   styleUrl: './custom-input.component.css',
   providers: [
@@ -16,15 +16,10 @@ import { CustomInputConfig, CustomInputType } from './model/custom-input.model';
       useExisting: CustomInputComponent,
       multi: true
     },
-    {
-      provide: Validators,
-      useExisting: CustomInputComponent,
-      multi: true
-    },
     provideIcons({ featherEye, featherEyeOff })
   ]
 })
-export class CustomInputComponent implements ControlValueAccessor, Validator {
+export class CustomInputComponent implements ControlValueAccessor {
 
   config = input.required<CustomInputConfig>()
 
@@ -32,6 +27,7 @@ export class CustomInputComponent implements ControlValueAccessor, Validator {
   type = CustomInputType;
   iconEyed = featherEye;
   iconEyeOff = featherEyeOff;
+  typeValid = CustomInputValidatorsType;
 
   visiblePassword = signal(false);
 
@@ -39,54 +35,12 @@ export class CustomInputComponent implements ControlValueAccessor, Validator {
   onTouched: () => void = () => { };
   onValidatorChange: () => void = () => { };
 
-  errors: ValidationErrors | null = null;
-
-
-  validate(control: AbstractControl): ValidationErrors | null {
-    const validators = [];
-
-    if (this.config().required) {
-      validators.push(Validators.required);
-
-    }
-
-    if (this.config().pattern) {
-      validators.push(Validators.pattern(this.config().pattern ?? ''));
-    }
-
-    if (this.config().minLength) {
-      validators.push(Validators.minLength(this.config().minLength ?? 0));
-    }
-
-    if (this.config().maxLength) {
-      validators.push(Validators.maxLength(this.config().maxLength ?? Infinity));
-    }
-
-    if (this.config().min !== undefined) {
-      validators.push(Validators.min(this.config().min ?? -Infinity));
-    }
-
-    if (this.config().max !== undefined) {
-      validators.push(Validators.max(this.config().max ?? Infinity));
-    }
-
-    if (this.config().type === 'email') {
-      validators.push(Validators.email);
-    }
-
-    const validatorFn = Validators.compose(validators);
-    this.errors = validatorFn ? validatorFn(control) : null;
-
-    return this.errors;
-
-  }
-
   registerOnValidatorChange?(fn: () => void): void {
     this.onValidatorChange = fn;
   }
 
   writeValue(value: any): void {
-    this.value = value;
+    this.config().control.setValue(value, { emitEvent: true });
   }
 
   registerOnChange(fn: (value: any) => void): void {

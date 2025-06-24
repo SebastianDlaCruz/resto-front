@@ -19,7 +19,7 @@
     @if(isSignIn()){
 
     @for(input of inputsSingIn; track input) {
-    <app-custom-input [config]="input" />
+    <app-custom-input [config]="input" [formControlName]="input.formControlName" />
     }
 
     <div class="container-button">
@@ -30,7 +30,7 @@
     }@else {
 
     @for(input of inputsSignUp; track input) {
-    <app-custom-input [config]="input" />
+    <app-custom-input [config]="input" [formControlName]="input.formControlName" />
     }
 
     <div class="container-button">

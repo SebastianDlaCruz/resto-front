@@ -1,0 +1,35 @@
+article{
+  display: flex;
+  gap:1rem;
+  height: 142px;
+  width: clamp(320px, calc(247px + 21vw), 563px) ;
+  padding-inline: .8rem;;
+  border-radius: 8px;
+  color: var(--grey-v1);
+  background-color: #F9F6F6;
+}
+
+
+div{
+  --size: 150px;
+
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  line-height: 208px;
+}
+
+
+
+@media screen and (min-width:  980px) {
+
+   img{
+    position: absolute;
+    top: -19%;
+    object-fit: cover;
+    border-radius: inherit;
+  }
+
+
+}
