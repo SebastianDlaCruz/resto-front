@@ -1,0 +1,19 @@
+form{
+  position: relative;
+  width: 548px;
+  z-index: 3;
+}
+
+input{
+  height: 50px;
+  width: inherit;
+  padding-inline: 1rem;
+  background-color: var(--white);
+}
+
+button{
+  position: absolute;
+  inset-block: 24%;
+  right: 4%;
+  color: var(--grey-v2);
+}

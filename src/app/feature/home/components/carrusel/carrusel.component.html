@@ -1,0 +1,35 @@
+@let localItems = items();
+
+<article class="carousel-container">
+
+  <button>
+    <ng-icon [svg]="arrowLeftIcon"></ng-icon>
+  </button>
+
+  <div class="carousel-wrapper">
+
+    <div class="carousel" [style.transform]="transformStyle">
+
+      @for (item of localItems; track $index) {
+      <div class="carousel-item">
+        <!-- <ng-container *ngTemplateOutlet="itemTemplate;context:{$implicit:true}"></ng-container> -->
+      </div>
+      }
+    </div>
+  </div>
+
+
+  <button>
+    <ng-icon [svg]="arrowRightIcon"></ng-icon>
+  </button>
+
+
+</article>
+
+<!-- <ng-template #itemTemplate let-item>
+
+  <div class="default-item">
+    <h3>{{ item.title }}</h3>
+    <p>{{ item.description }}</p>
+  </div>
+</ng-template> -->

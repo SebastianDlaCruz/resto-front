@@ -8,6 +8,11 @@ export const routes: Routes = [
     title: 'Inicio',
     loadComponent: () => import('./feature/home/home.component').then(c => c.HomeComponent),
     data: [RolEnum.ADMIN, RolEnum.USER]
+  },
+  {
+    path: 'letter',
+    title: 'Carta',
+    loadComponent: () => import('./feature/letter/letter.component').then(c => c.LetterComponent),
+    data: [RolEnum.ADMIN, RolEnum.USER]
   }
-
 ];

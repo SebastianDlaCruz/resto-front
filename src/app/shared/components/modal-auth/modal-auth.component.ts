@@ -1,7 +1,11 @@
-import { Component, ElementRef, signal, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, signal, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthHttpService } from '@core/http';
+import { SingIn } from '@core/models';
+import { setStateAuth } from '@core/store';
 import { NgIcon, provideIcons, provideNgIconsConfig } from '@ng-icons/core';
 import { featherX } from '@ng-icons/feather-icons';
+import { Store } from '@ngrx/store';
 import { CustomInputConfig, CustomInputType, CustomInputValidatorsType } from '../custom-input';
 import { CustomInputComponent } from '../custom-input/custom-input.component';
 
@@ -19,6 +23,9 @@ import { CustomInputComponent } from '../custom-input/custom-input.component';
 export class ModalAuthComponent {
 
   @ViewChild('modal', { static: true }) modal!: ElementRef<HTMLDialogElement>;
+
+  private readonly authHttp = inject(AuthHttpService);
+  private readonly store = inject<Store<{ stateAuth: boolean }>>(Store)
 
   iconX = featherX;
 
@@ -138,10 +145,15 @@ export class ModalAuthComponent {
 
     if (this.isSignIn()) {
 
-
-
       if (this.formSignIn.valid) {
-        console.log('value', this.formSignIn.value);
+
+        this.authHttp.singIng(this.formSignIn.value as SingIn).subscribe({
+          next: (value) => {
+            this.store.dispatch(setStateAuth({
+              stateAuth: true
+            }))
+          }
+        })
 
       } else {
         this.formSignIn.markAllAsTouched();

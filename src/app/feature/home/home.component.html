@@ -1,3 +1,5 @@
+@let localVisibleLayout = visibleLayout();
+
 <app-nav-bar />
 
 <main>
@@ -5,9 +7,7 @@
   <section class="section-hero">
     <header>
 
-      <form>
-        <input type="text">
-      </form>
+      <app-search (onFocus)="onVisibleLayout()" (onBlur)="onDisableLayout()" />
 
       <h1>Destacados de esta semana</h1>
 
@@ -19,7 +19,14 @@
 
     </header>
 
+    <app-carrusel [items]="[]" />
+
   </section>
+
+  @if(localVisibleLayout){
+  <app-layout-search />
+  }
+
 
   <section>
 

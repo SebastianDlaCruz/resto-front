@@ -1,1 +1,8 @@
-<p>search works!</p>
+<form>
+  <input type="text" placeholder="Buscar" (focus)="onVisibleLayout()" (blur)="onDisableLayout()" />
+
+  <button>
+    <ng-icon [svg]="searchIcon"></ng-icon>
+  </button>
+
+</form>

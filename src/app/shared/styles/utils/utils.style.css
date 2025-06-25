@@ -7,7 +7,9 @@
   }
 }
 
-
+.link-active{
+   color: var(--yellow);
+}
 
 .button-style{
 

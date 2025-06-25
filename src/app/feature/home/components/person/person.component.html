@@ -1,17 +1,19 @@
+@let personLocal = person();
+
 <article>
 
   <div>
-    <img [src]="person().img" [alt]="person().name" />
+    <img [src]="personLocal.img" [alt]="personLocal.name" />
   </div>
 
   <section>
 
     <header>
-      <h3>{{person().name}}</h3>
+      <h3>{{personLocal.name}}</h3>
     </header>
 
-    <p>{{person().description}}</p>
-
+    <p>{{personLocal.description}}</p>
+    <b>{{personLocal.date}}</b>
   </section>
 
 </article>

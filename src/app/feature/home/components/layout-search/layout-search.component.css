@@ -1,0 +1,7 @@
+div{
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/home.png');
+  background-repeat: no-repeat;
+  z-index: 2;
+}

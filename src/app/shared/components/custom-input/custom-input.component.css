@@ -26,18 +26,20 @@ input{
   line-height: 100%;
   letter-spacing: 0%;
   font-weight: 400;
+
   &::placeholder{
     color: #000000
   }
 
   &:focus{
-    outline: none;
-    border: 1.5px solid var(--yellow-2);
+    border: none;
+    outline: 2px solid var(--yellow-2);
   }
 
   &.invalid-input{
-   border: 1px solid var(--invalid);
-   color: var(--invalid);
+    border: none;
+    outline: 2px solid var(--invalid);
+    color: var(--invalid);
   }
 
 }

@@ -9,10 +9,10 @@
   <nav>
 
     <menu>
-      <li><a href="" class="hover-item-menu">Carta</a></li>
-      <li><a href="" class="hover-item-menu">Promociones</a></li>
-      <li><a href="" class="hover-item-menu">Contacto</a></li>
-      <li><a href="" class="hover-item-menu">Mi Cuenta</a></li>
+      <li><a routerLink='/letter' routerLinkActive="link-active" class="hover-item-menu">Carta</a></li>
+      <li><a routerLink='/' routerLinkActive="link-active" class="hover-item-menu">Promociones</a></li>
+      <li><a routerLink='/' routerLinkActive="link-active" class="hover-item-menu">Contacto</a></li>
+      <li><a routerLink='/' routerLinkActive="link-active" class="hover-item-menu">Mi Cuenta</a></li>
     </menu>
 
     <div class="container-buttons">
@@ -25,7 +25,7 @@
         <ng-icon [svg]="logoutIcon"></ng-icon>
       </button> -->
 
-      <button class="cart">
+      <button class="hover-item-menu">
         <ng-icon [svg]="cartIcon"></ng-icon>
       </button>
 

@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { featherAlignJustify, featherLogOut, featherShoppingCart } from '@ng-icons/feather-icons';
 import { ModalAuthComponent } from '../modal-auth/modal-auth.component';
@@ -6,7 +7,7 @@ import { AsideBarComponent } from './components/aside-bar/aside-bar.component';
 
 @Component({
   selector: 'app-nav-bar',
-  imports: [NgIcon, AsideBarComponent, ModalAuthComponent],
+  imports: [NgIcon, AsideBarComponent, ModalAuthComponent, RouterLink],
   providers: [provideIcons({ featherLogOut, featherShoppingCart, featherAlignJustify })],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
