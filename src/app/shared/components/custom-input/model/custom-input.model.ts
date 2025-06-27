@@ -5,13 +5,14 @@ export enum CustomInputType {
   PASSWORD = 'password',
   EMAIL = 'email',
   NUMBER = 'number',
-  TEL = 'tel',
+  TEL = 'tel'
 }
 
 
 export enum CustomInputValidatorsType {
   REQUERID = 'touched',
-  EMAIL = 'email'
+  EMAIL = 'email',
+
 }
 
 
@@ -38,4 +39,5 @@ export interface CustomInputConfig {
   formControlName: string;
   control: FormControl;
   validators?: CustomInputValidators[];
+  hasError?: boolean;
 }

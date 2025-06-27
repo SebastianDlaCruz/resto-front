@@ -8,6 +8,7 @@ import { featherX } from '@ng-icons/feather-icons';
 import { Store } from '@ngrx/store';
 import { CustomInputConfig, CustomInputType, CustomInputValidatorsType } from '../custom-input';
 import { CustomInputComponent } from '../custom-input/custom-input.component';
+import { validateMatchPassword } from './util/validate-match-password.utl';
 
 
 @Component({
@@ -35,12 +36,18 @@ export class ModalAuthComponent {
   })
 
 
-  formSingUp = new FormGroup({
-    email: new FormControl('', [Validators.email, Validators.required]),
-    name: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required]),
-    confirmPassword: new FormControl('', [Validators.required]),
-  });
+  formSingUp = new FormGroup(
+    {
+      email: new FormControl('', [Validators.email, Validators.required]),
+      name: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
+      confirmPassword: new FormControl('', [Validators.required]),
+    },
+    {
+      validators: validateMatchPassword
+    }
+
+  );
 
 
 
@@ -83,28 +90,45 @@ export class ModalAuthComponent {
       label: 'Correo ',
       type: CustomInputType.EMAIL,
       formControlName: 'email',
-      control: this.formSingUp.get('email') as FormControl
+      control: this.formSingUp.get('email') as FormControl,
+      validators: [{
+        valid: CustomInputValidatorsType.REQUERID,
+        message: 'El campo es requerido.'
+      }]
     },
     {
       ref: 'name',
       label: 'Nombre',
       type: CustomInputType.TEXT,
       formControlName: 'name',
-      control: this.formSingUp.get('name') as FormControl
+      control: this.formSingUp.get('name') as FormControl,
+      validators: [{
+        valid: CustomInputValidatorsType.REQUERID,
+        message: 'El campo es requerido.'
+      }]
     },
     {
       ref: 'password',
       label: 'Contraseña',
       type: CustomInputType.PASSWORD,
       formControlName: 'password',
-      control: this.formSingUp.get('password') as FormControl
+      control: this.formSingUp.get('password') as FormControl,
+      validators: [{
+        valid: CustomInputValidatorsType.REQUERID,
+        message: 'El campo es requerido.'
+      }]
     },
     {
       ref: 'confirmPassword',
       label: 'Confirmar Contraseña',
       type: CustomInputType.PASSWORD,
       formControlName: 'confirmPassword',
-      control: this.formSingUp.get('confirmPassword') as FormControl
+      control: this.formSingUp.get('confirmPassword') as FormControl,
+      validators: [{
+        valid: CustomInputValidatorsType.REQUERID,
+        message: 'El campo es requerido.'
+      }],
+      hasError: this.formSingUp.hasError('passwordMismatch')
     }
   ]
 
@@ -147,6 +171,8 @@ export class ModalAuthComponent {
 
       if (this.formSignIn.valid) {
 
+
+
         this.authHttp.singIng(this.formSignIn.value as SingIn).subscribe({
           next: (value) => {
             this.store.dispatch(setStateAuth({
@@ -164,6 +190,7 @@ export class ModalAuthComponent {
 
     if (!this.isSignIn()) {
 
+      console.log('validator', this.formSingUp.hasError('passwordMismatch'))
       if (this.formSingUp.valid) {
 
       } else {
