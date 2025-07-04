@@ -1,0 +1,8 @@
+@let localName = name();
+@let localImg = img();
+
+<li>
+  <a [routerLink]="['category',localName]">
+    <img [src]="localImg" [alt]="localName">
+  </a>
+</li>

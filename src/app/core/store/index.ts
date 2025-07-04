@@ -1,3 +1,3 @@
-export * from './actions/state-auth/state-auth.actions';
-export * from './reducers/state-auth/state-auth.reducer';
+export * from './actions/auth-rol/auth-rol.action';
+export * from './reducers/auth-rol/auth-rol.reducer';
 

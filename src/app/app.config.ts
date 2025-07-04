@@ -1,9 +1,11 @@
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideNgIconsConfig } from '@ng-icons/core';
 
-import { stateAuthReducer } from '@core/store';
+
+import { requestHttpInterceptor } from '@core/interceptors';
+import { authRolReducer } from '@core/store';
 import { provideStore } from '@ngrx/store';
 import { routes } from './app.routes';
 
@@ -14,7 +16,7 @@ export const appConfig: ApplicationConfig = {
       size: '1.5em',
       color: "white",
     }),
-    provideStore({ stateAuth: stateAuthReducer }),
-    provideHttpClient(withFetch())
+    provideStore({ authRol: authRolReducer }),
+    provideHttpClient(withInterceptors([requestHttpInterceptor]), withFetch())
   ]
 };

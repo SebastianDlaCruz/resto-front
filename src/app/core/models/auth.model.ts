@@ -6,3 +6,8 @@ export interface SingIn {
 export interface SingUp extends SingIn {
   name: string;
 }
+
+
+export interface AuthRol {
+  authRol: string;
+}

@@ -2,7 +2,7 @@ import { Component, ElementRef, inject, signal, ViewChild } from '@angular/core'
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthHttpService } from '@core/http';
 import { SingIn } from '@core/models';
-import { setStateAuth } from '@core/store';
+import { setAuthRol } from '@core/store';
 import { NgIcon, provideIcons, provideNgIconsConfig } from '@ng-icons/core';
 import { featherX } from '@ng-icons/feather-icons';
 import { Store } from '@ngrx/store';
@@ -175,8 +175,8 @@ export class ModalAuthComponent {
 
         this.authHttp.singIng(this.formSignIn.value as SingIn).subscribe({
           next: (value) => {
-            this.store.dispatch(setStateAuth({
-              stateAuth: true
+            this.store.dispatch(setAuthRol({
+              authRol: value.data.authRol
             }))
           }
         })
@@ -190,7 +190,7 @@ export class ModalAuthComponent {
 
     if (!this.isSignIn()) {
 
-      console.log('validator', this.formSingUp.hasError('passwordMismatch'))
+
       if (this.formSingUp.valid) {
 
       } else {

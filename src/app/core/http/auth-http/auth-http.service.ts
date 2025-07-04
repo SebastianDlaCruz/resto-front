@@ -1,30 +1,33 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { SingIn, SingUp } from '@core/models';
-import { ResponseSuccess } from '@core/models/response-success.model';
-import { environment } from '../../../../environments/environment.development';
+import { AuthRol, SingIn, SingUp } from '@core/models';
+import { ResponseSuccess, ResponseSuccessData } from '@core/models/response-success.model';
+import { Observable } from 'rxjs';
+import { AuthHttp } from './interface/auth-http.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthHttpService {
+export class AuthHttpService implements AuthHttp {
 
-  private readonly API = `${environment.API}/auth`;
+
   private readonly http = inject(HttpClient);
 
   singIng(data: SingIn) {
-    return this.http.post<ResponseSuccess<unknown>>(`${this.API}/singin`, data, {
-      withCredentials: true
-    })
+    return this.http.post<ResponseSuccessData<AuthRol>>(`/sing-in`, data)
 
   };
-
 
   singUp(data: SingUp) {
-    return this.http.post<ResponseSuccess<unknown>>(`${this.API}/singup`, data, {
-      withCredentials: true
-    })
+    return this.http.post<ResponseSuccessData<AuthRol>>(`/sing-up`, data)
   };
 
 
+  singOut(): Observable<ResponseSuccess> {
+    return this.http.get<ResponseSuccess>(`/sing-out`);
+  }
+
+  refreshToken(): Observable<ResponseSuccess> {
+    return this.http.get<ResponseSuccess>(`/refresh-token`);
+  }
 }

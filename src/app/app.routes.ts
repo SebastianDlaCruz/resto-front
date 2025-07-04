@@ -14,5 +14,9 @@ export const routes: Routes = [
     title: 'Carta',
     loadComponent: () => import('./feature/letter/letter.component').then(c => c.LetterComponent),
     data: [RolEnum.ADMIN, RolEnum.USER]
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./feature/admin/admin.routes').then(r => r.routes)
   }
 ];

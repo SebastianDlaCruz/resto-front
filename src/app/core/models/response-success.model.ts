@@ -1,6 +1,9 @@
-export interface ResponseSuccess<T> {
+export interface ResponseSuccess {
   statusCode: number;
   message: string;
   success: boolean
-  data?: T
+};
+
+export interface ResponseSuccessData<T> extends ResponseSuccess {
+  data: T
 }
