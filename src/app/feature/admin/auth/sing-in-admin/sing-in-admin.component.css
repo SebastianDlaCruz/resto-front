@@ -1,0 +1,23 @@
+main{
+  display: grid;
+  place-items: center;
+  color:var(--black);
+
+  & section{
+    height: 701px;
+    width: 1252px;
+    padding: 2rem;
+    background-color: var(--white);
+  }
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 1.9rem;
+}
+
+button{
+  height: 57px;
+  min-width: 100%;
+}

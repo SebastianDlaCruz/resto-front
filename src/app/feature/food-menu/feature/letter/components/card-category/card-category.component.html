@@ -1,0 +1,11 @@
+@let localName = name();
+@let localImg = img();
+
+<li>
+
+  <img [src]="localImg" [alt]="localName">
+
+  <a [routerLink]="['/letter/category', localName]">
+    {{localName}}
+  </a>
+</li>

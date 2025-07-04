@@ -1,7 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { AuthRol } from '@core/models';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { featherAlignJustify, featherLogOut, featherShoppingCart } from '@ng-icons/feather-icons';
+import { Store } from '@ngrx/store';
 import { ModalAuthComponent } from '../modal-auth/modal-auth.component';
 import { AsideBarComponent } from './components/aside-bar/aside-bar.component';
 
@@ -22,6 +24,9 @@ export class NavBarComponent {
   hamburgerIcon = featherAlignJustify;
 
   activeAside = false;
+  private readonly store = inject<Store<AuthRol>>(Store);
+  authRol = this.store.selectSignal(select => select.authRol);
+
 
   onOpenModal() {
     if (this.modalAuth) {

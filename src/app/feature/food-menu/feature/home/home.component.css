@@ -9,6 +9,9 @@ main{
   border-bottom-right-radius: 100px;
   border-bottom-left-radius: 100px;
   background-image: url('/images/home.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
 
   & header{
     display: flex;
@@ -21,6 +24,7 @@ main{
   & div{
     display: flex;
     align-items: center;
+    gap: 1rem;
 
     & hr{
       color:var(--white);

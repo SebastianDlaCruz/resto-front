@@ -1,1 +1,20 @@
-<p>sing-in-admin works!</p>
+<main>
+
+  <section>
+
+    <header>
+      <h1>Inicia Sesión</h1>
+    </header>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      @for (input of inputs; track $index) {
+      <app-custom-input [config]="input" [formControlName]="input.formControlName" />
+      }
+
+      <button class="button-style">Iniciar Sesión</button>
+    </form>
+
+  </section>
+
+</main>

@@ -1,0 +1,25 @@
+<main>
+
+  <section>
+
+    <header>
+      <h1>Conoce nuestra carta</h1>
+    </header>
+
+    <ul>
+
+      @if(category$ | async; as categories) {
+
+      @for (category of categories.data ; track $index) {
+      <app-card-category [img]="category.img" [name]="category.name" />
+      }
+
+      }
+
+
+    </ul>
+
+  </section>
+
+
+</main>

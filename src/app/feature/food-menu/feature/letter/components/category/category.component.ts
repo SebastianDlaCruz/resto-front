@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { NavBarComponent } from '@shared/components';
 
 @Component({
-  selector: 'app-letter',
+  selector: 'app-category',
   imports: [NavBarComponent],
-  templateUrl: './letter.component.html',
-  styleUrl: './letter.component.css'
+  templateUrl: './category.component.html',
+  styleUrl: './category.component.css'
 })
-export class LetterComponent {
+export class CategoryComponent {
 
 }

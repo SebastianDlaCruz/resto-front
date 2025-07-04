@@ -1,5 +1,9 @@
 import { FormControl } from "@angular/forms";
 
+
+/**
+ * tipos de input
+ */
 export enum CustomInputType {
   TEXT = 'text',
   PASSWORD = 'password',
@@ -8,20 +12,28 @@ export enum CustomInputType {
   TEL = 'tel'
 }
 
-
+/**
+ * tipos de validaciones
+ */
 export enum CustomInputValidatorsType {
   REQUERID = 'touched',
   EMAIL = 'email',
 
 }
 
-
+/**
+ *  tipos de validaciones
+ */
 interface CustomInputValidators {
   valid: string;
   message: string;
 
 }
 
+
+/**
+ * configuración de input
+ */
 export interface CustomInputConfig {
   type: CustomInputType,
   label: string;

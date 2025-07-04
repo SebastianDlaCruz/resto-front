@@ -1,0 +1,17 @@
+main{
+  padding-inline: var(--padding-inline);
+}
+
+section{
+
+  & header{
+    text-align: center;
+  }
+
+  ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem ;
+  }
+}

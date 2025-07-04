@@ -5,6 +5,20 @@ import { NgIcon, provideIcons } from '@ng-icons/core';
 import { featherEye, featherEyeOff } from '@ng-icons/feather-icons';
 import { CustomInputConfig, CustomInputType, CustomInputValidatorsType } from './model/custom-input.model';
 
+/**
+ * componente input personalizado
+ * input recibe un objeto de configuración para establecer las propiedades del input
+ * config : CustomInputConfig
+ * @example {
+ * label: 'Nombre',
+ *   placeholder: 'Ingrese su nombre',
+ *   type: CustomInputType.Text,
+ *   validators: [Validators.required]
+ * }
+ *
+ */
+
+
 @Component({
   selector: 'app-custom-input',
   imports: [NgIcon, ReactiveFormsModule],

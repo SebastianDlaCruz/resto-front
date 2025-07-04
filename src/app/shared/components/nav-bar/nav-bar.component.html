@@ -1,3 +1,5 @@
+@let authRolLocal = authRol();
+
 <header>
 
   <button class="hamburger" (click)="onActive()">
@@ -19,13 +21,17 @@
 
     <div class="container-buttons">
 
+
+      @if(authRolLocal){
+      <button class="logout">
+        <ng-icon [svg]="logoutIcon"></ng-icon>
+      </button>
+      }@else {
       <button class="button-auth" (click)="onOpenModal()">
         Iniciar Sesión
       </button>
 
-      <!--   <button class="logout">
-        <ng-icon [svg]="logoutIcon"></ng-icon>
-      </button> -->
+      }
 
       <button class="hover-item-menu">
         <ng-icon [svg]="cartIcon"></ng-icon>
