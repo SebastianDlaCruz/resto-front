@@ -18,7 +18,7 @@ export enum CustomInputType {
 export enum CustomInputValidatorsType {
   REQUERID = 'touched',
   EMAIL = 'email',
-
+  PASSWORD_MISMATCH = 'passwordMismatch'
 }
 
 /**
@@ -51,5 +51,4 @@ export interface CustomInputConfig {
   formControlName: string;
   control: FormControl;
   validators?: CustomInputValidators[];
-  hasError?: boolean;
 }

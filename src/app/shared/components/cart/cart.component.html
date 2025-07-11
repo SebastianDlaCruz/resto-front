@@ -1,0 +1,25 @@
+@let isActiveLocal = isActive();
+
+<aside [class.aside-active]="isActiveLocal">
+
+  <section>
+
+    <header>
+      <h2>Mi pedido</h2>
+      <ng-icon [svg]="iconCart"></ng-icon>
+    </header>
+
+    <button class="icon-x" (click)="close.emit()">
+      <ng-icon [svg]="iconX"></ng-icon>
+    </button>
+
+    <article>
+
+    </article>
+
+    <footer>
+      <button class="button-style">Confirmar</button>
+      <a routerLink="/order">Seguir comprando</a>
+    </footer>
+  </section>
+</aside>

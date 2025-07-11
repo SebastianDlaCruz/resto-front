@@ -1,8 +1,14 @@
+@let activeLocal = active();
+@let activeCartLocal = activeCart();
+
+
 <app-nav-bar />
 
 <router-outlet />
 
+<app-cart [isActive]="activeCartLocal" (close)="onCloseCart()" />
 
-<app-footer-bar />
+<app-search-movil [isActive]="activeLocal" />
+<app-footer-bar (onActive)="onIsActive()" />
 
 <app-footer />

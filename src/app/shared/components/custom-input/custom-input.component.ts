@@ -47,11 +47,7 @@ export class CustomInputComponent implements ControlValueAccessor {
 
   onChange: (value: any) => void = () => { };
   onTouched: () => void = () => { };
-  onValidatorChange: () => void = () => { };
 
-  registerOnValidatorChange?(fn: () => void): void {
-    this.onValidatorChange = fn;
-  }
 
   writeValue(value: any): void {
     this.config().control.setValue(value, { emitEvent: true });
@@ -74,6 +70,7 @@ export class CustomInputComponent implements ControlValueAccessor {
     this.value = value;
     this.onChange(value);
     this.onTouched();
+
   }
 
 

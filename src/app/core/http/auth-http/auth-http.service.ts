@@ -20,41 +20,20 @@ export class AuthHttpService implements AuthHttp {
   private readonly http = inject(HttpClient);
 
 
-  /**
-   * Inicio de sesión
-   *
-   * @param data -  model/auth  {singIn}
-   * @returns  retorna model/ {ResponseSuccessData<AuthRol>}  - devuelve el rol del usuario
-   */
-
   singIng(data: SingIn) {
     return this.http.post<ResponseSuccessData<AuthRol>>(`/sing-in`, data)
 
   };
 
-
-  /**
-   * Crea un nuevo usuario
-   * @param data  - model/auth {SingUp}
-   * @returns  model/response-success {ResponseSuccessData<AuthRol>} - devuelve el rol del usuario
-   */
   singUp(data: SingUp) {
     return this.http.post<ResponseSuccessData<AuthRol>>(`/sing-up`, data)
   };
 
-  /**
-   * cierra la sesion del usuario
-   * @returns  model/response-success {ResponseSuccess} - devuelve la respues del api
-   */
 
   singOut(): Observable<ResponseSuccess> {
     return this.http.get<ResponseSuccess>(`/sing-out`);
   }
 
-  /**
-   * refresca el token
-   * @returns  model/response-success {ResponseSuccessData<AuthRol>} - devuelve rol
-   */
   refreshToken(): Observable<ResponseSuccess> {
     return this.http.get<ResponseSuccess>(`/refresh-token`);
   }

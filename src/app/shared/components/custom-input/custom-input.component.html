@@ -12,17 +12,15 @@
   <small class="error">El campo es requerido</small>
   }
 
-  @if(configLocal.control.invalid && configLocal.hasError ){
-  <small class="error">error</small>
-  }
 
   @if(configLocal.validators && configLocal.validators.length > 0){
 
   @for(validate of configLocal.validators; track validate){
 
-  @if(configLocal.control.invalid && configLocal.control.hasError(validate.valid)){
+  @if(configLocal.control.touched && configLocal.control.hasError(validate.valid)){
   <small class="error">{{validate.message}}</small>
   }
+
   }
 
   }

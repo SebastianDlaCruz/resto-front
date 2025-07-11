@@ -1,0 +1,14 @@
+@let isActiveLocal = isActive();
+
+<div class="search-movil" [class.search-movil-active]=" isActiveLocal">
+
+
+  <form [formGroup]="form">
+    <app-custom-input [config]="config" />
+  </form>
+
+  <p>No hay publicaciones que coincidan con tu búsqueda.
+    <a routerLink="/letter">Te invitamos a navegar por las categorías</a> para encontrar el plato que buscas.
+  </p>
+
+</div>

@@ -41,11 +41,8 @@ export class ModalAuthComponent {
       email: new FormControl('', [Validators.email, Validators.required]),
       name: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
-      confirmPassword: new FormControl('', [Validators.required]),
+      confirmPassword: new FormControl('', [Validators.required, validateMatchPassword]),
     },
-    {
-      validators: validateMatchPassword
-    }
 
   );
 
@@ -91,10 +88,16 @@ export class ModalAuthComponent {
       type: CustomInputType.EMAIL,
       formControlName: 'email',
       control: this.formSingUp.get('email') as FormControl,
-      validators: [{
-        valid: CustomInputValidatorsType.REQUERID,
-        message: 'El campo es requerido.'
-      }]
+      validators: [
+        {
+          valid: CustomInputValidatorsType.REQUERID,
+          message: 'El correo electrónico es requerido.'
+        },
+        {
+          valid: CustomInputValidatorsType.EMAIL,
+          message: 'El campo tiene que ser un correo electrónico.'
+        }
+      ]
     },
     {
       ref: 'name',
@@ -105,7 +108,8 @@ export class ModalAuthComponent {
       validators: [{
         valid: CustomInputValidatorsType.REQUERID,
         message: 'El campo es requerido.'
-      }]
+      }
+      ]
     },
     {
       ref: 'password',
@@ -124,11 +128,16 @@ export class ModalAuthComponent {
       type: CustomInputType.PASSWORD,
       formControlName: 'confirmPassword',
       control: this.formSingUp.get('confirmPassword') as FormControl,
-      validators: [{
-        valid: CustomInputValidatorsType.REQUERID,
-        message: 'El campo es requerido.'
-      }],
-      hasError: this.formSingUp.hasError('passwordMismatch')
+      validators: [
+        {
+          valid: CustomInputValidatorsType.REQUERID,
+          message: 'El campo es requerido.'
+        }, {
+          valid: CustomInputValidatorsType.PASSWORD_MISMATCH,
+          message: 'El password no coincide.'
+        }
+
+      ],
     }
   ]
 
@@ -190,6 +199,7 @@ export class ModalAuthComponent {
 
     if (!this.isSignIn()) {
 
+      console.log(this.formSingUp.touched, this.formSingUp.get('passwordMismatch')?.hasError('passwordMismatch'));
 
       if (this.formSingUp.valid) {
 

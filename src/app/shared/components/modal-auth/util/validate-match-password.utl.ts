@@ -2,11 +2,11 @@ import { AbstractControl, ValidationErrors } from "@angular/forms";
 
 export const validateMatchPassword = (control: AbstractControl): ValidationErrors | null => {
 
-  const password = control.get('password')?.value;
-  const confirmPassword = control.get('confirmPassword')?.value;
+  if (!control.parent) return null;
 
+  const password = control.parent.get('password')?.value as string;
+  const confirmPassword = control.parent.get('confirmPassword')?.value;
 
-  if (!password || !confirmPassword) return null;
 
   return password !== confirmPassword
     ? { passwordMismatch: true }

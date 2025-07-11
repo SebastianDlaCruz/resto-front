@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { featherFileText, featherHome, featherSearch, featherUser } from '@ng-icons/feather-icons';
 import { latterIconSvg, promotionsIconSvg } from './consts/icons.conts';
@@ -10,7 +10,6 @@ import { latterIconSvg, promotionsIconSvg } from './consts/icons.conts';
   providers: [provideIcons({ featherHome, featherSearch, featherFileText, featherUser })]
 })
 export class FooterBarComponent {
-
   // icons
   homeIcon = featherHome;
   searchIcon = featherSearch;
@@ -19,4 +18,9 @@ export class FooterBarComponent {
 
   promotionsIcon = promotionsIconSvg;
   latterIcon = latterIconSvg;
+
+  onActive = output<void>()
+
+
+
 }

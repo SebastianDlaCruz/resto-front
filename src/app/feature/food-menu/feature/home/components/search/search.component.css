@@ -1,5 +1,6 @@
 form{
   position: relative;
+  display: none;
   width: 548px;
   z-index: 3;
 }
@@ -16,4 +17,11 @@ button{
   inset-block: 24%;
   right: 4%;
   color: var(--grey-v2);
+}
+
+
+@media screen and (min-width:  980px) {
+form{
+  display: block;
+}
 }

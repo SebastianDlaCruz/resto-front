@@ -4,6 +4,7 @@ div{
   flex-direction: column;
   justify-content: flex-start;
   gap: 12px;
+  height: 100%;
 
   & > .error{
    color: var(--invalid);
